@@ -14,15 +14,17 @@ function setup()
 {
   createCanvas(400, 400);
   angleMode (DEGREES);
-  
+
+  createButton("Start");
+
   // Setup the microphone
   mic = new p5.AudioIn();
   mic.start();
-  
+
   // Define some global variables
   turnipColor = color(220, 235, 209);
-  
-  //Drawing the Droplets 
+
+  //Drawing the Droplets
   droplet1 = new Droplet(350, 50, 2);
   droplet2 = new Droplet(200, 50, 6);
   droplet3 = new Droplet(150, 50, 3);
@@ -31,7 +33,7 @@ function setup()
 }
 
 function draw()
-{   
+{
   // let micMovement = map(mic.getLevel(), 0, .15, 0, -25);
   let leftAngle = map(mouseY, 0, 400, 90, 0);
   let rightAngle = map(mouseY, 0, 400, -90, 0);
@@ -53,14 +55,14 @@ function draw()
   //drawbluerect(350,200,-98);
   //drawdroplet(95, 180);
 
- 
+
   //show the droplets from the droplet.js
   droplet1.display();
   droplet2.display();
   droplet3.display();
   droplet4.display();
   droplet5.display();
-  
+
   droplet1.move();
   droplet2.move();
   droplet3.move();
@@ -82,19 +84,19 @@ function drawPlatform()
   fill(255, 187, 15);
   strokeWeight(1)
   ellipse(200 + platformOffset,290,250,100);
-  
+
   //platformOffset--;
   //if (platformOffset < -325)
   {
    // platformOffset = 325;
-  } 
+  }
 }
 
 function drawArm(xPos, yPos, rotation)
-{   
+{
   fill(turnipColor);
   noStroke ();
-  
+
   // Left hand
   push();
   translate(xPos, yPos);
@@ -109,13 +111,13 @@ function drawFoot(xPos, yPos)
   // Same as turnip color
   fill(turnipColor);
   noStroke();
-  
+
   ellipse (xPos,yPos,45,40);
 }
 
 function drawBody()
 {
-  // Turnip Color 
+  // Turnip Color
   fill(turnipColor);
   noStroke();
 
@@ -132,27 +134,27 @@ function drawFace()
 
   ellipse (175,180,15,25); // Left eye
   ellipse (225,180,15,25); // Right eye
-  
+
   // Cheek color
   fill (255, 200, 239);
   stroke(0);
 
   ellipse (160,200,12,6); // Left Cheek
   ellipse(240,200,12,6); // Right cheek
-  
+
   // Mouth Reference points
   let p1 = { x: 190, y: 200 };
   let p2 = { x: 195, y: 205 }; // p1 to p2 is invisible
   let p3 = { x: 205, y: 205 }; // p2 to p3 is visible
   let p4 = { x: 210, y: 200 }; // p3 to p4 is invisible
-  
+
   // stroke(238, 27, 56);
   // strokeWeight(5);
   // point(p1.x, p1.y);
   // point(p2.x, p2.y);
   // point(p3.x, p3.y);
   // point(p4.x, p4.y);
-  
+
   // Draw mouth as a curved line
   noFill();
   stroke(0);
@@ -161,7 +163,7 @@ function drawFace()
 }
 
 function drawStem()
-{  
+{
   //mic goes from 0 to 1
   //how it will move depending on the sound: 0,-25
   let micMovement = map(mic.getLevel(), 0, .15, 0, -25);
@@ -177,12 +179,12 @@ function drawStem()
   // point(230, 90); // Right valley
   // point(280, 100); // Right tip
   // point(230, 130); // Right base
-  
+
   // Color of the stem
   fill(148, 181, 112);
   stroke(0);
   strokeWeight(1);
-  
+
   // Draw the stem
   beginShape();
   curveVertex(200, 120); // Top of the head
@@ -230,6 +232,3 @@ function mousePressed()
     }
   }
 }
-
-
-
