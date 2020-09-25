@@ -9,17 +9,16 @@ let droplet2;
 let droplet3;
 let droplet4;
 let droplet5;
+let sketchStarted = false;
 
 function setup()
 {
   createCanvas(400, 400);
   angleMode (DEGREES);
 
-  createButton("Start");
+  createButton("Start").mousePressed(startSketch);
 
-  // Setup the microphone
-  mic = new p5.AudioIn();
-  mic.start();
+
 
   // Define some global variables
   turnipColor = color(220, 235, 209);
@@ -32,8 +31,20 @@ function setup()
   droplet5 = new Droplet(70, 50, 4);
 }
 
+function startSketch(){
+  // Setup the microphone
+  mic = new p5.AudioIn();
+  mic.start();
+
+  sketchStarted = true;
+
+}
+
 function draw()
 {
+
+if (sketchStarted) {
+
   // let micMovement = map(mic.getLevel(), 0, .15, 0, -25);
   let leftAngle = map(mouseY, 0, 400, 90, 0);
   let rightAngle = map(mouseY, 0, 400, -90, 0);
@@ -77,6 +88,12 @@ function draw()
     ellipse(200,210,10,10);
   }
 }
+
+}
+
+
+
+
 
 function drawPlatform()
 {
