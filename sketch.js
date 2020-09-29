@@ -217,18 +217,18 @@ function drawStem()
 }
 
 //function drawbluerect(xPos, yPos, rotation)
-{
-  fill(130, 200, 237);
-  stroke(0);
-  strokeWeight(.5);
+//{
+  //fill(130, 200, 237);
+  //stroke(0);
+  //strokeWeight(.5);
 
-  push();
-  translate(xPos, yPos)
-  rotate (rotation)
-  rectMode(CENTER);
-  rect(0,0, 20,40);
-  pop();
-}
+  //push();
+  //translate(xPos, yPos)
+  //rotate (rotation)
+  //rectMode(CENTER);
+  //rect(0,0, 20,40);
+  //pop();
+//}
 
 
 function mousePressed()
